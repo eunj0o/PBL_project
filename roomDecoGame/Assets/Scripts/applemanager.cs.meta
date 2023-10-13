@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2284ccf8f2087b14b8b063cf152bc37c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - applePrefab: {instanceID: 0}
+  - basket: {instanceID: 0}
+  - score_text: {instanceID: 0}
+  - time_text: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
