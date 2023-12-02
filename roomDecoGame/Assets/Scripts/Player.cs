@@ -1,29 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private float moveSpeed;
-
+    [SerializeField] private GameObject player;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ToRight()
     {
-        Vector3 moveTo = new Vector3(moveSpeed * Time.deltaTime, 0, 0);
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position -= moveTo;
-        }
-        else if(Input.GetKey(KeyCode.RightArrow))
-        {
-            transform .position += moveTo;
-        }
+        spriteRenderer.flipX = false;
+        player.transform.localPosition = new Vector3(-68, player.transform.localPosition.y, player.transform.localPosition.z);
+    }
+
+    public void ToLeft()
+    {
+        spriteRenderer.flipX = true;
+        player.transform.localPosition = new Vector3(68, player.transform.localPosition.y, player.transform.localPosition.z);
+    }
+
+    public void Run()
+    {
+        animator.SetBool("run", true);
+    }
+
+    public void StopRun()
+    {
+        animator.SetBool("run", false);
     }
 }

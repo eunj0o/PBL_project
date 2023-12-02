@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TabbedMenu/TabbedMenu.uss?fileID=7433441132597879392&amp;guid=1d43c60fe544d3242a7953a5d1030657&amp;type=3#TabbedMenu" />
+    <ui:VisualElement name="setting" style="flex-grow: 1; flex-direction: row; width: auto; height: auto; padding-bottom: 5%; background-color: rgba(56, 56, 56, 0.67); padding-top: 5%; padding-right: 5%; padding-left: 5%;">
+        <ui:VisualElement name="tabs" class="element" style="flex-grow: 1; height: auto; padding-bottom: 0;">
+            <ui:Label tabindex="-1" text="Graphic" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GraphicTab" class="currentlySelectedTab tab" style="justify-content: flex-start; align-items: auto; align-self: auto; -unity-text-align: middle-center;" />
+            <ui:Label tabindex="-1" text="Audio" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AudioTab" class="tab" style="justify-content: flex-start; align-items: stretch; align-self: auto; -unity-text-align: middle-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="tabContent" class="element" style="flex-grow: 5; align-items: stretch;">
+            <ui:VisualElement name="GraphicContent" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Graphic test" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GraphicTest" />
+                <ui:DropdownField label="Dropdown" index="-1" choices="System.Collections.Generic.List`1[System.String]" name="ResolutionDropDown" />
+                <ui:Toggle label="Toggle" />
+            </ui:VisualElement>
+            <ui:VisualElement name="AudioContent" class="unselectedContent" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Audio test" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AudioTest" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="close" style="left: 85%; top: -85%; width: 5%; height: 5%;" />
+</ui:UXML>

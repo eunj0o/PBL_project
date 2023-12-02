@@ -5,16 +5,20 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEditor.PackageManager;
+using UnityEngine.SceneManagement;
 
 public class applemanager : MonoBehaviour
 {
+    private const string mainScene = "testScene";
     [SerializeField] private GameObject applePrefab; // 사과 프리팹
     [SerializeField] private GameObject basket; // 바구니
-    [SerializeField] private float score = 0f; // 점수
+    [SerializeField] private int score = 0; // 점수
     [SerializeField] private float missscore; // 놓친 점수
     [SerializeField] private float time;
     [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject ready_panel;
     [SerializeField] private GameObject result_panel;
+    [SerializeField] private TextMeshProUGUI count_text; // 카운트다운
     [SerializeField] private TextMeshProUGUI score_text; // 점수
     [SerializeField] private TextMeshProUGUI result_text; // 점수
     //[SerializeField] private TextMeshProUGUI miss_text; //놓친 점수
@@ -25,22 +29,34 @@ public class applemanager : MonoBehaviour
 
     [SerializeField] private float duration = 60f; // 사과 생성 시간
     [SerializeField] private int totalApples = 100; // 생성할 사과의 총 개수
-    List<GameObject> apples = new List<GameObject>();
+    [SerializeField] private List<Sprite> appleImages;
+    private List<GameObject> apples = new List<GameObject>();
+
 
     void Start()
     {
+        StartCoroutine(Ready());
+    }
+
+    public void OnClickBack()
+    {
+        SceneManager.LoadScene(mainScene);
+    }
+
+    IEnumerator Ready()
+    {
+        var canvasGroup = canvas.GetComponent<CanvasGroup>();
+        int second = 3;
+        canvasGroup.alpha = 0.1f;
+        while (second > 0)
+        {
+            count_text.text = second.ToString();
+            second--;
+            yield return new WaitForSeconds(1.0f);
+        }
+        ready_panel.SetActive(false);
+        canvasGroup.alpha = 1f;
         StartCoroutine(SpawnApples());
-    }
-
-    void Update()
-    {
-        MoveBasket();
-    }
-
-    void MoveBasket()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        basket.transform.position = new Vector3(mousePos.x, basket.transform.position.y, basket.transform.position.z);
     }
 
     IEnumerator Finish()
@@ -54,11 +70,16 @@ public class applemanager : MonoBehaviour
         var canvasGroup = canvas.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0.1f;
         canvasGroup.interactable = false;
+        basket.active = false;
+        int coin = PlayerPrefs.GetInt("Coin", 0);
+        PlayerPrefs.SetInt("Coin", coin + score);
         result_panel.SetActive(true);
     }
 
     IEnumerator SpawnApples()
     {
+        
+
         result_panel.SetActive(false);
         // 랜덤 간격을 생성
         List<float> intervals = new List<float>();
@@ -87,8 +108,8 @@ public class applemanager : MonoBehaviour
             yield return new WaitForSeconds(averageInterval + intervals[i]); // 무작위 간격 + 평균 간격
 
             GameObject apple = Instantiate(applePrefab);
+            
             apple.transform.position = new Vector2(UnityEngine.Random.Range(-7.5f, 7.5f), UnityEngine.Random.Range(5.5f, 7f)); // 랜덤 위치
-            Debug.Log("Y: " + apple.transform.position.y);
             Rigidbody2D appleRb = apple.AddComponent<Rigidbody2D>(); // Rigidbody2D 컴포넌트 추가
             appleRb.gravityScale = UnityEngine.Random.Range(2f, 4f); // 랜덤 속도
 
@@ -103,7 +124,7 @@ public class applemanager : MonoBehaviour
                     Physics2D.IgnoreCollision(appleComponent, existingApple.GetComponent<Collider2D>());
                 }
             }
-
+            apple.gameObject.GetComponent<SpriteRenderer>().sprite = appleImages[UnityEngine.Random.Range(0, 7)];   // 사과 이미지 랜덤
             apples.Add(apple);
 
             // 경과 시간 업데이트
