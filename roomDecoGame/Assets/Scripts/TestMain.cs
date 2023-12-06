@@ -10,6 +10,12 @@ public class TestMain : MonoBehaviour
     private const string miniGameScene = "miniGameScene";
     private const string pickItemScene = "randomScene";
     // Start is called before the first frame update
+    void Start()
+    {
+        ItemControl.control.itemList.Last().iObject.SetActive(true);
+        ItemControl.control.itemList.Last().iObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+
+    }
 
     public void OnMiniGameButton()
     {

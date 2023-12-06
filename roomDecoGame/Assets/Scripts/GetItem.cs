@@ -11,7 +11,7 @@ using UnityEditor;
 
 public class GetItem : MonoBehaviour
 {
-    private const string mainScene = "testScene";
+    private const string mainScene = "SampleScene";
     private const int cost = 0;     //50
     private int coin;
     [SerializeField] private GameObject item;
@@ -55,7 +55,7 @@ public class GetItem : MonoBehaviour
         PrefabUtility.SaveAsPrefabAssetAndConnect(item, localPath, InteractionMode.UserAction, out prefabSuccess);
         #endif
         */
-        GameObject newItem = Instantiate(item, new Vector3(0,0,90), Quaternion.identity);
+        GameObject newItem = Instantiate(item, new Vector3(400,300,90), Quaternion.identity);
         DontDestroyOnLoad(newItem);
         newItem.SetActive(false);
         ItemControl.control.itemList.Add(new ItemInfo(false, itemId, newItem));
