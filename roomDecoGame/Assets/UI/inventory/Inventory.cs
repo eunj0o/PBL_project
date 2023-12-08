@@ -1,67 +1,98 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Windows;
 
 public class Inventory : MonoBehaviour
 {
-    #region Singleton
-    public static Inventory instance;
-    private void Awake()
+    public GameObject InventoryUI;
+    public GameObject grid;
+    bool activeInventory = false;
+    FurnitureController furnitureController = new FurnitureController();
+    public int index = 0;
+    
+
+    private void Start()
     {
-        if(instance != null)
+        InventoryUI.SetActive(activeInventory);
+    }
+
+    void Update()
+    {
+        if (UnityEngine.Input.GetKeyDown(KeyCode.I))
         {
-            Destroy(gameObject);
-            return;
+            activeInventory = !activeInventory;
+            InventoryStatus();
+            Debug.Log(ItemControl.control.itemList[0].iObject.transform.position);
         }
-        instance = this;
-    }
-    #endregion
 
-    public delegate void OnSlotCountChange(int val);
-    public OnSlotCountChange onSlotCountChange;
+        furnitureController.FurMove(index);
+        
 
-    public delegate void OnChangeItem();
-    public OnChangeItem onChangeItem;
-
-    //public List<Item> items = new List<Item>();
-
-    private int slotCnt;
-
-    public int SlotCnt
-    {
-        get => slotCnt;
-        set{
-            slotCnt = value;
-            onSlotCountChange.Invoke(slotCnt);
-        }
     }
 
-    void Start()
-    {
-        SlotCnt = 4;
-    }
 
-    public bool AddItem(Item _item)
+    public void InventoryStatus()
     {
-        if(ItemControl.control.itemList.Count < SlotCnt)
+        if (activeInventory == true)
         {
-            //items.Add(_item);
-            if (onChangeItem != null)
-            onChangeItem.Invoke();
-            return true;
+            InventoryUI.SetActive(activeInventory);
+            for (int i = 0; i < ItemControl.control.itemList.Count; i++)
+            {
+                if (ItemControl.control.itemList[i].bePlaced == true)
+                {
+                    continue;
+                }
+                ItemControl.control.itemList[i].iObject.transform.position = grid.transform.GetChild(i).position;
+                ItemControl.control.itemList[i].iObject.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+                ItemControl.control.itemList[i].iObject.SetActive(activeInventory);
+
+            }
+
         }
-        return false;
+        else
+        {
+            for (int i = 0; i < ItemControl.control.itemList.Count; i++)
+            {
+                if (ItemControl.control.itemList[i].bePlaced == true)
+                {
+                    continue;
+                }
+                ItemControl.control.itemList[i].iObject.SetActive(activeInventory);
+            }
+            InventoryUI.SetActive(activeInventory);
+
+        }
     }
 
-   private void OnTriggerEnter2D(Collider2D collision)
-   {
-    if(collision.CompareTag("FieldItem"))
+    public void OnClickSlot()
     {
-        FieldItems fieldItems = collision.GetComponent<FieldItems>();
-        /*if(AddItem(fieldItems.GetItem()))
-            fieldItems.DestroyItem();
-        */
+        string name = EventSystem.current.currentSelectedGameObject.name;
+        string s_index = name.Substring(6, 1);
+        index = Convert.ToInt32(s_index);
+        furnitureController.SetIndex(index);
+        Debug.Log(index);
+        ItemControl.control.itemList[index].iObject.transform.position = new Vector3(400, 300, 90);
+        ItemControl.control.itemList[index].iObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        ItemControl.control.itemList[index].bePlaced = !ItemControl.control.itemList[index].bePlaced;
+
+
+        if (ItemControl.control.itemList[index].bePlaced == true)
+        {
+            ItemControl.control.itemList[index].iObject.SetActive(true);
+            
+
+        }
+        else
+        {
+            
+
+        }
     }
-   }
 
 }
+
+

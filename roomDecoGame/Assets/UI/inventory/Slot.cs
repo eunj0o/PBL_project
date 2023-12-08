@@ -1,21 +1,20 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    //public Item item;
     public Image itemIcon;
+    public GameObject grid;
 
-    public void UpdateSlotUI()
+    public void UpdateSlotUI(int i)
     {
-        //itemIcon.sprite = item.itemImage;
-        itemIcon.gameObject.SetActive(true);
+        ItemControl.control.itemList[i].iObject.transform.position = grid.transform.GetChild(i).position;
+        ItemControl.control.itemList[i].iObject.SetActive(true);
     }
     public void RemoveSlot()
     {
-        //item = null;
-        itemIcon.gameObject.SetActive(false);
+        ItemControl.control.itemList[i].iObject.SetActive(false);
     }
-}
+}*/

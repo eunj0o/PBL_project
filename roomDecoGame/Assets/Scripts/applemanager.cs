@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 public class applemanager : MonoBehaviour
 {
-    private const string mainScene = "testScene";
+    private const string mainScene = "SampleScene";
     [SerializeField] private GameObject applePrefab; // 사과 프리팹
     [SerializeField] private GameObject basket; // 바구니
     [SerializeField] private int score = 0; // 점수

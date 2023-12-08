@@ -6,15 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class TestMain : MonoBehaviour
 {
+    public GameObject grid;
+    Inventory inventory;
     private GameObject prefabTest;
     private const string miniGameScene = "miniGameScene";
     private const string pickItemScene = "randomScene";
+    private const string sampleScene = "WebLogin";
     // Start is called before the first frame update
     void Start()
     {
-        ItemControl.control.itemList.Last().iObject.SetActive(true);
-        ItemControl.control.itemList.Last().iObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //ItemControl.control.itemList.Last().iObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+    }
 
+    private void Update()
+    {
+        
     }
 
     public void OnMiniGameButton()
@@ -50,9 +56,13 @@ public class TestMain : MonoBehaviour
         // Load the scene
         SceneManager.LoadScene(pickItemScene);
     }
-
-    public void OnClickTest()
+    public void OnPlayButton()
     {
-        ItemControl.control.itemList.Last().iObject.SetActive(true);
+
+        // Load the scene
+        SceneManager.LoadScene(sampleScene);
+
+
+
     }
 }

@@ -12,8 +12,8 @@ using UnityEditor;
 public class GetItem : MonoBehaviour
 {
     private const string mainScene = "SampleScene";
-    private const int cost = 0;     //50
-    private int coin;
+    private const int cost = 30;     //50
+    private int coin = 200;
     [SerializeField] private GameObject item;
     [SerializeField]  private GameObject furniture;
     [SerializeField]  private GameObject pattern;
@@ -37,7 +37,7 @@ public class GetItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coin = PlayerPrefs.GetInt("Coin", 0);
+        coin = PlayerPrefs.GetInt("Coin", coin);
         CoinText.text = coin.ToString();
     }
 

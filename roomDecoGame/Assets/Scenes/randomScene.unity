@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1061,9 +1061,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 742694527}
+  - component: {fileID: 742694528}
   m_Layer: 5
   m_Name: Item
-  m_TagString: Untagged
+  m_TagString: FieldItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1086,6 +1087,19 @@ Transform:
   - {fileID: 1427447671}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742694528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742694526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276ee180b3afb954fa76505ec2683475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
 --- !u!1 &870919868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1380,7 @@ GameObject:
   - component: {fileID: 1003526699}
   - component: {fileID: 1003526698}
   - component: {fileID: 1003526697}
+  - component: {fileID: 1003526701}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1458,6 +1473,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!222 &1003526701
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003526696}
+  m_CullTransparentMesh: 1
 --- !u!1 &1030613376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,15 +1536,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.65882355}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0c364d5b3e3b04f4d866c855175327c0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2012,7 +2035,7 @@ MonoBehaviour:
   AlertText: {fileID: 902440490}
   CoinText: {fileID: 1970594010}
   furnitureCount: 3
-  patternCount: 2
+  patternCount: 7
 --- !u!114 &1454080651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2592,6 +2615,10 @@ PrefabInstance:
     - target: {fileID: 1727973610539107879, guid: 0c48b2d5ebab5554f9cbae2d45687653, type: 3}
       propertyPath: m_Name
       value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727973610539107879, guid: 0c48b2d5ebab5554f9cbae2d45687653, type: 3}
+      propertyPath: m_TagString
+      value: FieldItem
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1223433743963140420, guid: 0c48b2d5ebab5554f9cbae2d45687653, type: 3}
