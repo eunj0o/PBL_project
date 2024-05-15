@@ -10,6 +10,7 @@ public class TestMain : MonoBehaviour
     Inventory inventory;
     private GameObject prefabTest;
     private const string miniGameScene = "miniGameScene";
+    private const string exchangeScene = "exchangeScene";
     private const string pickItemScene = "randomScene";
     private const string sampleScene = "WebLogin";
     // Start is called before the first frame update
@@ -24,6 +25,23 @@ public class TestMain : MonoBehaviour
     }
 
     public void OnMiniGameButton()
+    {
+        if (ItemControl.control.itemList.Any())
+        {
+            // If itemList has elements, deactivate the last item's GameObject
+            ItemControl.control.itemList.Last().iObject.SetActive(false);
+        }
+        else
+        {
+            // Handle the case when itemList is empty
+            Debug.LogWarning("itemList is empty. Cannot set active to false.");
+        }
+
+        // Load the scene
+        SceneManager.LoadScene(miniGameScene);
+    }
+
+    public void OnExchangeButton()
     {
         if (ItemControl.control.itemList.Any())
         {

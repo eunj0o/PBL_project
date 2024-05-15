@@ -18,9 +18,18 @@ EditorBuildSettings:
     path: Assets/Scenes/randomScene.unity
     guid: 4324b44def374734e9a445e200e2f176
   - enabled: 0
+    path: Assets/Scenes/exchangeScene.unity
+    guid: 3b32106866a9088438bd7fa71d486221
+  - enabled: 0
     path: Assets/Scenes/titleScene.unity
     guid: 9c93464b83526fd448858b59cc568231
   - enabled: 0
     path: Assets/Scenes/testScene.unity
     guid: 5d5565063683bae4a86654c33d235cb2
+  - enabled: 0
+    path: Assets/Scenes/gridViewScene.unity
+    guid: 526d09c890b70fd489ca6ed97f652cb3
+  - enabled: 1
+    path: Assets/Scenes/exchangeScene 1.unity
+    guid: c79eef27e867c81419e579403f07fe22
   m_configObjects: {}

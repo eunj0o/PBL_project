@@ -52,9 +52,10 @@ public class FurnitureController : MonoBehaviour
 
     void FurRotate()
     {
+        Vector3 flipMove = Vector3.zero;
         if (Input.GetKey(KeyCode.Q))
         {
-            rend.flipX = false;
+            flipMove = Vector3.one;
         }
 
         if (Input.GetKey(KeyCode.E))

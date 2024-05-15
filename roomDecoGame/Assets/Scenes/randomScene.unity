@@ -2024,6 +2024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2557e4346acc145a609839ff46b905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coin: 200
   item: {fileID: 742694526}
   furniture: {fileID: 1929188674}
   pattern: {fileID: 1512383403}

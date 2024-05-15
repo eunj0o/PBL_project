@@ -12,8 +12,8 @@ using UnityEditor;
 public class GetItem : MonoBehaviour
 {
     private const string mainScene = "SampleScene";
-    private const int cost = 30;     //50
-    private int coin = 200;
+    private const int cost = 0;     //50
+    [SerializeField] private int coin = 0;
     [SerializeField] private GameObject item;
     [SerializeField]  private GameObject furniture;
     [SerializeField]  private GameObject pattern;
@@ -217,7 +217,7 @@ public class GetItem : MonoBehaviour
 
     private void LoadPatterns()
     {
-        int index = UnityEngine.Random.Range(0, furnitureCount);
+        int index = UnityEngine.Random.Range(0, patternCount);
         string path = "Sprites/pattern/" + index.ToString();
         pattern.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(path);
     }

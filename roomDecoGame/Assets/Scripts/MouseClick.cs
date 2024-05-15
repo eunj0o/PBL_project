@@ -21,7 +21,7 @@ public class MouseClick : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (LoadScene == "miniGameScene" | LoadScene == "randomScene")
+        if (LoadScene == "miniGameScene" | LoadScene == "exchangeScene" | LoadScene == "randomScene")
         {
             if (ItemControl.control.itemList.Any())
             {
