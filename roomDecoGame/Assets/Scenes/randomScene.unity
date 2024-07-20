@@ -1989,7 +1989,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1454080649}
   - component: {fileID: 1454080650}
-  - component: {fileID: 1454080651}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2037,19 +2036,6 @@ MonoBehaviour:
   CoinText: {fileID: 1970594010}
   furnitureCount: 3
   patternCount: 7
---- !u!114 &1454080651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454080648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1400accfe79e69840bc337d21b02c89d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPrefeb: {fileID: 1929188674}
 --- !u!1 &1512383403
 GameObject:
   m_ObjectHideFlags: 0

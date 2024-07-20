@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using ChainSafe.Gaming.UnityPackage;
+
+using Scripts.EVM.Token;
+using System.Numerics;
+
+
 #if UNITY_EDITOR
 using UnityEditor.PackageManager;
 #endif
@@ -14,14 +20,15 @@ public class applemanager : MonoBehaviour
     private const string mainScene = "SampleScene";
     [SerializeField] private GameObject applePrefab; // 사과 프리팹
     [SerializeField] private GameObject basket; // 바구니
-    [SerializeField] private int score = 0; // 점수
+    [SerializeField] public int score = 0; // 점수
+    [SerializeField] public string score_string = "";
     [SerializeField] private float missscore; // 놓친 점수
     [SerializeField] private float time;
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject ready_panel;
     [SerializeField] private GameObject result_panel;
     [SerializeField] private TextMeshProUGUI count_text; // 카운트다운
-    [SerializeField] private TextMeshProUGUI score_text; // 점수
+    [SerializeField] public TextMeshProUGUI score_text; // 점수
     [SerializeField] private TextMeshProUGUI result_text; // 점수
     //[SerializeField] private TextMeshProUGUI miss_text; //놓친 점수
     //[SerializeField] private TextMeshProUGUI accuracy; //정확도
@@ -34,10 +41,15 @@ public class applemanager : MonoBehaviour
     [SerializeField] private List<Sprite> appleImages;
     private List<GameObject> apples = new List<GameObject>();
 
+    private PlayMiniGame playMiniGame;
+
+
+
 
     void Start()
     {
         StartCoroutine(Ready());
+        playMiniGame = FindObjectOfType<PlayMiniGame>();
     }
 
     public void OnClickBack()
@@ -68,6 +80,14 @@ public class applemanager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         result_text.text = score_text.text + " 점의 기록을 세웠습니다!";
+
+        Debug.Log("문제5");
+
+        playMiniGame.ContractSend();
+
+        Debug.Log("문제3");
+        
+        
 
         var canvasGroup = canvas.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0.1f;
@@ -111,12 +131,12 @@ public class applemanager : MonoBehaviour
 
             GameObject apple = Instantiate(applePrefab);
             
-            apple.transform.position = new Vector2(UnityEngine.Random.Range(-7.5f, 7.5f), UnityEngine.Random.Range(5.5f, 7f)); // 랜덤 위치
+            apple.transform.position = new UnityEngine.Vector2(UnityEngine.Random.Range(-7.5f, 7.5f), UnityEngine.Random.Range(5.5f, 7f)); // 랜덤 위치
             Rigidbody2D appleRb = apple.AddComponent<Rigidbody2D>(); // Rigidbody2D 컴포넌트 추가
             appleRb.gravityScale = UnityEngine.Random.Range(2f, 4f); // 랜덤 속도
 
             // x축 방향으로 무작위 힘 추가
-            appleRb.AddForce(new Vector2(UnityEngine.Random.Range(-1f, 1f), 0), ForceMode2D.Impulse);
+            appleRb.AddForce(new UnityEngine.Vector2(UnityEngine.Random.Range(-1f, 1f), 0), ForceMode2D.Impulse);
 
             foreach (var existingApple in apples)
             {
@@ -175,4 +195,6 @@ public class applemanager : MonoBehaviour
         missscore++;
         //miss_text.text = "놓친 사과 수: " + missscore.ToString();
     }
+
+    
 }

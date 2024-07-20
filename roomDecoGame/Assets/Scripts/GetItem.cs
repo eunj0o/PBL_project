@@ -13,7 +13,7 @@ public class GetItem : MonoBehaviour
 {
     private const string mainScene = "SampleScene";
     private const int cost = 0;     //50
-    [SerializeField] private int coin = 0;
+    [SerializeField] public int coin = 0;
     [SerializeField] private GameObject item;
     [SerializeField]  private GameObject furniture;
     [SerializeField]  private GameObject pattern;

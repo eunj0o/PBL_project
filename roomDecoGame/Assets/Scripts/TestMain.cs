@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,10 +14,14 @@ public class TestMain : MonoBehaviour
     private const string exchangeScene = "exchangeScene";
     private const string pickItemScene = "randomScene";
     private const string sampleScene = "WebLogin";
+    [SerializeField] public int coin = 0;
+    [SerializeField] private TextMeshProUGUI CoinText;
     // Start is called before the first frame update
     void Start()
     {
         //ItemControl.control.itemList.Last().iObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        coin = PlayerPrefs.GetInt("Coin", coin);
+        CoinText.text = coin.ToString();
     }
 
     private void Update()

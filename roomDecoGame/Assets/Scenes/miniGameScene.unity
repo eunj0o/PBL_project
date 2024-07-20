@@ -1953,6 +1953,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1754791243}
   - component: {fileID: 1754791242}
+  - component: {fileID: 1754791244}
+  - component: {fileID: 1754791245}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1975,6 +1977,7 @@ MonoBehaviour:
   applePrefab: {fileID: 4611324694184697737, guid: 5bc4c839223f47243944566fc4f6352d, type: 3}
   basket: {fileID: 1168293537}
   score: 0
+  score_string: 
   missscore: 0
   time: 0
   canvas: {fileID: 257252683}
@@ -2010,6 +2013,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1754791244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754791241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17cccf6b1459e4648be5d2d0957ea9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1754791245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754791241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50470207dddf994f9711b303e64697e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947659867
 GameObject:
   m_ObjectHideFlags: 0

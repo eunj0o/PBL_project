@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection;
 using UI;
+#if UNITY_EDITOR
 using UnityEditor.U2D.Animation;
+#endif
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
