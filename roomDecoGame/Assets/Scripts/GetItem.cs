@@ -58,7 +58,7 @@ public class GetItem : MonoBehaviour
         GameObject newItem = Instantiate(item, new Vector3(400,300,90), Quaternion.identity);
         DontDestroyOnLoad(newItem);
         newItem.SetActive(false);
-        ItemControl.control.itemList.Add(new ItemInfo(false, itemId, newItem));
+        ItemControl.control.itemList.Add(new ItemInfo(-1, false, itemId, newItem));
     }
     public void OnClickPick()
     {

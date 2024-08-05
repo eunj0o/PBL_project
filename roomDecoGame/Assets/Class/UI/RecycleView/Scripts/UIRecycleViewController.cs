@@ -49,11 +49,11 @@ namespace UI
             {
                 // 셀이 하나도 없을 때는 visibleRect의 범위에 들어가는 첫 번째 리스트 항목을 찾아서
                 // 그에 대응하는 셀을 작성한다
-                Vector2 cellTop = new Vector2(0.0f, -padding.top);
+                Vector2 cellTop = new Vector2(700f, -padding.top);
                 for (int i = 0; i < tableData.Count; i++)
                 {
                     float cellHeight = GetCellHeightAtIndex(i);
-                    Vector2 cellBottom = cellTop + new Vector2(0.0f, -cellHeight);
+                    Vector2 cellBottom = cellTop + new Vector2(700f, -cellHeight);
                     if ((cellTop.y <= visibleRect.y && cellTop.y >= visibleRect.y - visibleRect.height) ||
                        (cellBottom.y <= visibleRect.y && cellBottom.y >= visibleRect.y - visibleRect.height))
                     {

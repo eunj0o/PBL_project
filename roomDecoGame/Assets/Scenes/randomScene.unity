@@ -1062,6 +1062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 742694527}
   - component: {fileID: 742694528}
+  - component: {fileID: 742694529}
   m_Layer: 5
   m_Name: Item
   m_TagString: FieldItem
@@ -1100,6 +1101,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!210 &742694529
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742694526}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &870919868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,9 +2608,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 586223515939864530, guid: 0c48b2d5ebab5554f9cbae2d45687653, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 595345086978338325, guid: 0c48b2d5ebab5554f9cbae2d45687653, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 595345086978338325, guid: 0c48b2d5ebab5554f9cbae2d45687653, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1727973610539107879, guid: 0c48b2d5ebab5554f9cbae2d45687653, type: 3}
       propertyPath: m_Name

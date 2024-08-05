@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
 
     void Update()
     {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.I))
+        if (UnityEngine.Input.GetKeyUp(KeyCode.I))
         {
             activeInventory = !activeInventory;
             InventoryStatus();
@@ -30,7 +30,8 @@ public class Inventory : MonoBehaviour
         }
 
         furnitureController.FurMove(index);
-        
+        furnitureController.FurRotate(index);
+
 
     }
 
@@ -39,16 +40,21 @@ public class Inventory : MonoBehaviour
     {
         if (activeInventory == true)
         {
+            int j = 0;
             InventoryUI.SetActive(activeInventory);
+
             for (int i = 0; i < ItemControl.control.itemList.Count; i++)
             {
                 if (ItemControl.control.itemList[i].bePlaced == true)
                 {
+                    //ItemControl.control.itemList[i].slotNum = -1;
                     continue;
                 }
                 ItemControl.control.itemList[i].iObject.transform.position = grid.transform.GetChild(i).position;
                 ItemControl.control.itemList[i].iObject.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 ItemControl.control.itemList[i].iObject.SetActive(activeInventory);
+                //ItemControl.control.itemList[i].slotNum = j;
+                //j++;
 
             }
 
@@ -59,6 +65,7 @@ public class Inventory : MonoBehaviour
             {
                 if (ItemControl.control.itemList[i].bePlaced == true)
                 {
+                    //ItemControl.control.itemList[i].slotNum = -1;
                     continue;
                 }
                 ItemControl.control.itemList[i].iObject.SetActive(activeInventory);

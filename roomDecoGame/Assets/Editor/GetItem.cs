@@ -55,7 +55,7 @@ public class GetItem : MonoBehaviour
         PrefabUtility.SaveAsPrefabAssetAndConnect(item, localPath, InteractionMode.UserAction, out prefabSuccess);
         #endif
         */
-        ItemControl.control.itemList.Add(new ItemInfo(false, itemId, item));
+        ItemControl.control.itemList.Add(new ItemInfo(-1, false, itemId, item));
     }
     public void OnClickPick()
     {

@@ -29,12 +29,13 @@ public class ItemControl : MonoBehaviour
 
 public class ItemInfo
 {
-    public ItemInfo(bool bePlaced, string id, GameObject iObject)
+    public ItemInfo(int slotNum, bool bePlaced, string id, GameObject iObject)
     {
         this.bePlaced = bePlaced;
         this.id = id;
         this.iObject = iObject;
     }
+    public int slotNum;
     public bool bePlaced;
     public Vector3 position;
     public Vector3 rotation;

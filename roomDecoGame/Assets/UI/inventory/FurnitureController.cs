@@ -20,7 +20,7 @@ public class FurnitureController : MonoBehaviour
     void Update()
     {
         //FurMove();
-        FurRotate();
+        //FurRotate();
     }
 
     public void SetIndex(int _index)
@@ -29,12 +29,12 @@ public class FurnitureController : MonoBehaviour
     }
     public void FurMove(int _index)
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
             ItemControl.control.itemList[index].iObject.transform.Translate(new Vector3(-furSpeed * Time.deltaTime, 0, 0));
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
             ItemControl.control.itemList[index].iObject.transform.Translate(new Vector3(furSpeed * Time.deltaTime, 0, 0));
         }
@@ -50,17 +50,34 @@ public class FurnitureController : MonoBehaviour
         }
     }
 
-    void FurRotate()
+    public void FurRotate(int _index)
     {
-        Vector3 flipMove = Vector3.zero;
+        
+         if (Input.GetKeyUp(KeyCode.Z))
+            ItemControl.control.itemList[index].iObject.transform.Rotate(0, 180, 0);
+
+        
+            
+        
+        
+        /*
         if (Input.GetKey(KeyCode.Q))
         {
-            flipMove = Vector3.one;
+
+            ItemControl.control.itemList[index].iObject.GetComponentsInChildren<SpriteRenderer>()[0].flipX = false;
+            ItemControl.control.itemList[index].iObject.GetComponentsInChildren<SpriteRenderer>()[1].flipX = false;
+            
+
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            rend.flipX = true;
+            ItemControl.control.itemList[index].iObject.GetComponentsInChildren<SpriteRenderer>()[0].flipX = true;
+            ItemControl.control.itemList[index].iObject.GetComponentsInChildren<SpriteRenderer>()[1].flipX = true;
+            
+
         }
+        */
+        
     }
 }
