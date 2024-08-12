@@ -12,12 +12,19 @@ public class Inventory : MonoBehaviour
     public GameObject grid;
     bool activeInventory = false;
     FurnitureController furnitureController = new FurnitureController();
+    Slot slot = new Slot();
     public int index = 0;
-    
+    public List<ItemInfo> itemDB = new List<ItemInfo>();
+    public Slot[] slots;
+    public Transform slotHolder;
+
 
     private void Start()
     {
+        slots = slotHolder.GetComponentsInChildren<Slot>();
+        InventoryInit();
         InventoryUI.SetActive(activeInventory);
+        
     }
 
     void Update()
@@ -25,8 +32,8 @@ public class Inventory : MonoBehaviour
         if (UnityEngine.Input.GetKeyUp(KeyCode.I))
         {
             activeInventory = !activeInventory;
-            InventoryStatus();
-            Debug.Log(ItemControl.control.itemList[0].iObject.transform.position);
+            InventoryUI.SetActive(activeInventory);
+            
         }
 
         furnitureController.FurMove(index);
@@ -35,7 +42,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-
+    /*
     public void InventoryStatus()
     {
         if (activeInventory == true)
@@ -74,7 +81,24 @@ public class Inventory : MonoBehaviour
 
         }
     }
+    */
 
+    public void InventoryInit()
+    {
+        int j = 0;
+
+        for (int i = 0; i < ItemControl.control.itemList.Count; i++)
+        {
+            if (ItemControl.control.itemList[i].bePlaced == false)
+            {
+                itemDB.Add(slots[i].UpdateSlot(i, j));
+                j++;
+            }
+        }
+    }
+
+
+    /*
     public void OnClickSlot()
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
@@ -98,6 +122,14 @@ public class Inventory : MonoBehaviour
             
 
         }
+    }
+    */
+
+    public void OnClickSlot()
+    {
+        index = slot.getIndex();
+        itemDB.Remove(ItemControl.control.itemList[index]);
+        InventoryInit();
     }
 
 }

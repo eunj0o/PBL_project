@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f6715f7a18d664beeb4aad45b6a0a076, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87,8 +87,8 @@ GameObject:
   - component: {fileID: 2092496326250006140}
   - component: {fileID: 6121871093678805106}
   - component: {fileID: 6260234191142776722}
-  - component: {fileID: 6786901050339427073}
   - component: {fileID: 6616013950030290986}
+  - component: {fileID: 1740525901617332660}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -197,24 +197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6121871093678805106}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &6786901050339427073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4705322136658078349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584e48569400d4ee3b775cd41aac4529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item:
-    itemType: 0
-    itemName: 
-    itemImage: {fileID: 0}
-  itemIcon: {fileID: 0}
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: OnClickSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6616013950030290986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +225,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1740525901617332660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705322136658078349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ec07ab0dc29084da73a8e644cf51e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  grid: {fileID: 0}
